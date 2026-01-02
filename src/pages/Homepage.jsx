@@ -1,6 +1,6 @@
 import React from 'react'
 import style from '../styles/homepage.module.css'
-import Navbar from '../../components/Navbar'
+import Navbar from '../components/Navbar'
 import bigLogo from "../images/bigLogo.png"
 import bgVideo from "../images/backVideo.mp4";
 import mobVideo from "../images/backVideoMobile.mp4"
