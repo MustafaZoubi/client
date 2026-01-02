@@ -1,9 +1,9 @@
 import React from 'react'
 import style from '../styles/homepage.module.css'
 import Navbar from '../components/Navbar'
-import bigLogo from "../images/bigLogo.png"
-import bgVideo from "../images/backVideo.mp4";
-import mobVideo from "../images/backVideoMobile.mp4"
+import bigLogo from "../assets/images/bigLogo.png"
+import bgVideo from "../assets/images/backVideo.mp4";
+import mobVideo from "../assets/images/backVideoMobile.mp4"
 export default function Homepage({ children }) {
     return (
         <>
