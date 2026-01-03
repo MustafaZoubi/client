@@ -4,32 +4,26 @@
     box-sizing: border-box;
 }
 
-.mainContainer {
-    width: 100%;
+a {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-
 .card {
-    height: 362.906px;
-    width: 375.953px;
+    width: 100%;
     background: rgba(15, 15, 15, 0.95);
     border-radius: 10px;
     transition: transform 0.4s ease;
+    height: 100%;
 }
 
 .card:hover {
     transform: scale(1.06);
     transition: transform 0.3s ease;
-
 }
 
 .card>img {
     width: 100%;
-    height: 60%;
+    height: calc(0.6 * 362.906px);
     object-fit: cover;
     object-position: 0 30%;
     clip-path: inset(0 round 10px);
@@ -38,7 +32,6 @@
 
 .bottomSection {
     width: 100%;
-    height: 100%;
     padding: 10px 20px;
     display: flex;
     flex-direction: column;
@@ -66,7 +59,6 @@ img.icon {
 
 a {
     color: white;
-
 }
 
 .title {

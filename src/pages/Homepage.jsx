@@ -3,7 +3,7 @@ import style from '../styles/homepage.module.css'
 import Navbar from '../components/Navbar'
 import bigLogo from "../assets/images/bigLogo.png"
 import bgVideo from "../assets/images/backVideo.mp4";
-
+import { Link } from "react-router"
 export default function Homepage({ children }) {
     return (
         <>
@@ -24,7 +24,7 @@ export default function Homepage({ children }) {
                     <div className={style.descriptionText}>
                         The Ultimate Game <br />Marketplace
                     </div>
-                    <button className={style.exploreBtn}>Explore Catalog</button>
+                    <button className={style.exploreBtn}><Link to="browse">Explore Catalog</Link></button>
                 </div>
             </div>
 
