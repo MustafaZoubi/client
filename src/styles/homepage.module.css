@@ -10,15 +10,11 @@
 .mainContainer {
     min-height: 100%;
     min-width: 100%;
-    /* background-image: url(../images/background.gif); */
-    background-size: cover;
-    background-position: center 0;
-    background-repeat: no-repeat;
     position: relative;
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
-    /* overflow: hidden; */
+
 }
 
 .bgVideo {
@@ -31,7 +27,9 @@
     z-index: -1;
 }
 
-
+.burgerMenu {
+    display: none;
+}
 
 .mainContainer::before {
     content: "";
@@ -49,6 +47,7 @@
     max-width: 650px;
     width: 100%;
     min-width: 150px;
+
 }
 
 .midMainSection {
@@ -63,12 +62,13 @@
     gap: 20px;
 }
 
+
 .descriptionText {
     font-family: "Cinzel Decorative", serif;
     color: white;
     font-size: 3rem;
     font-weight: 500;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     line-height: 1.2;
     width: 100%;
 }
@@ -98,8 +98,6 @@
     transition: all 0.2s ease;
 
 }
-
-
 
 @media (max-width: 1024px) and (min-width: 769px) {
 
