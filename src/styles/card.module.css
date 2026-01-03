@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    height: 100%;
+}
+
+.card {
+    width: 100%;
+    background: rgba(15, 15, 15, 0.95);
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+    height: 100%;
+}
+
+.card:hover {
+    transform: scale(1.06);
+    transition: transform 0.3s ease;
+}
+
+.card>img {
+    width: 100%;
+    height: calc(0.6 * 362.906px);
+    object-fit: cover;
+    object-position: 0 30%;
+    clip-path: inset(0 round 10px);
+
+}
+
+.bottomSection {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cost {
+    display: flex;
+    width: 100%;
+    color: #999999;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.icons {
+    display: flex;
+    gap: 5px;
+}
+
+img.icon {
+    width: 15px;
+    height: auto;
+}
+
+a {
+    color: white;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 600;
+}

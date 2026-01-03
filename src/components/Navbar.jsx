@@ -2,21 +2,27 @@ import React, { useState } from 'react'
 import logoImage from "../assets/images/logo.png"
 import style from "../styles/navbar.module.css"
 import { Link } from "react-router"
+import navVideo from "../assets/images/abstractRed.mp4"
 
-function Navbar() {
+function Navbar({ backgroundOn = false }) {
     const [menuOpen, setMenuOpen] = useState(false);
     const [burgerMenu, setBurgerMenu] = useState(false);
 
     return (
         <div className={style.nav}>
-
+            {backgroundOn ? <div className={style.overLay}><video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className={style.video} src={navVideo} /></div> : null}
             <Link to="/">
                 <img className={style.logo} src={logoImage} alt='logo' />
             </Link>
 
             <div className={style.midSection}>
                 <Link to="/"><div className={style.navItem}>Home</div></Link>
-                <Link to="browse"><div className={style.navItem}>Browse</div></Link>
+                <Link to="../browse"><div className={style.navItem}>Browse</div></Link>
                 <input
                     className={style.searchField}
                     type='text'
@@ -29,11 +35,11 @@ function Navbar() {
                     shopping_cart
                 </span>
 
-                <Link to="login">
+                <Link to="../login">
                     <button className={style.loginBtn}>Login</button>
                 </Link>
 
-                <Link to="signup">
+                <Link to="../signup">
                     <button className={style.signupBtn}>Sign Up</button>
                 </Link>
 
@@ -46,11 +52,11 @@ function Navbar() {
             <div className={`${style.burgerMenu} ${burgerMenu ? style.open : null}`}>
                 <Link to="/"><div className={style.navItem}>Home</div></Link>
                 <Link to="browse"><div className={style.navItem}>Browse</div></Link>
-                <Link to="login">
+                <Link to="../login">
                     <button className={style.loginBtnMobile}>Login</button>
                 </Link>
 
-                <Link to="signup">
+                <Link to="../signup">
                     <button className={style.signupBtnMobile}>Sign Up</button>
                 </Link>
 

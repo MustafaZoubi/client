@@ -99,6 +99,8 @@
 
 }
 
+
+
 @media (max-width: 1024px) and (min-width: 769px) {
 
     .midMainSection {
@@ -128,4 +130,6 @@
         font-size: 1.5rem;
         text-align: center;
     }
+
+
 }
