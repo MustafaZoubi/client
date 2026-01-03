@@ -2,7 +2,6 @@ import React from 'react'
 import backVideo from "../assets/images/backVideoLogin.mp4"
 import logo from "../assets/images/BerserkLogo.png"
 import style from "../styles/login.module.css"
-import { MdEmail } from "react-icons/md";
 import { Link } from 'react-router'
 export default function Login() {
     return (
@@ -20,11 +19,11 @@ export default function Login() {
                 <div className={style.innerContainer}>
                     <div className={style.emailContainer}>
                         <label htmlFor='email'>Email Address</label>
-                        <input id='email' className={style.loginField} type="email" placeholder='you@example.com' />
+                        <input id='email' className={style.field} type="email" placeholder='you@example.com' />
                     </div>
                     <div className={style.passContainer}>
                         <label htmlFor='password'>Password</label>
-                        <input id='password' className={style.loginField} type="password" placeholder='Enter your password' />
+                        <input id='password' className={style.field} type="password" placeholder='Enter your password' />
                     </div>
                     <div className={style.tools}>
                         <div className={style.remember}>
@@ -51,7 +50,7 @@ export default function Login() {
                         </p>
                     </div>
 
-                    <p className={style.account}>Don't have an account? <Link to="signup">Sign up for free</Link></p>
+                    <p className={style.account}>Don't have an account? <Link to="../signup">Sign up for free</Link></p>
                 </div>
             </div>
         </div>

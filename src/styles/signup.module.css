@@ -18,6 +18,7 @@
     align-items: center;
     padding-left: 10vw;
     padding-right: 10vw;
+    overflow: hidden;
 }
 
 .backVideo {
@@ -27,6 +28,8 @@
     width: 100%;
     height: 100%;
     object-position: center top;
+    overflow: hidden;
+
 }
 
 .mainContainer::before {
@@ -39,6 +42,7 @@
     z-index: 0;
 
 }
+
 
 .loginContainer {
     background: rgba(15, 15, 15, 0.95);
@@ -57,6 +61,7 @@
     max-width: 600px;
     width: 100%;
     margin-bottom: 40px;
+    min-width: 250px;
 }
 
 
@@ -85,6 +90,7 @@
     padding: 40px;
 }
 
+.usernameContainer,
 .emailContainer,
 .passContainer {
     display: flex;
@@ -129,32 +135,7 @@
     transition: background-color 9999s ease-out 0s;
 }
 
-.tools {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    color: #d1d5db;
-}
-
-.forgotPass {
-    color: #b31512;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.remember {
-    display: flex;
-    gap: 8px;
-    font-size: 14px;
-}
-
-
-.remember input {
-    accent-color: #3B3B3B;
-}
-
-
-.loginBtn {
+.registerBtn {
     background-color: #b90e0a;
     padding: 10px 20px;
     border: none;
@@ -169,7 +150,7 @@
     margin-bottom: 20px;
 }
 
-.loginBtn:hover {
+.registerBtn:hover {
     cursor: pointer;
     background-color: #9e0d0b;
     box-shadow: 0 0 10px 4px #b90e0a;
@@ -177,39 +158,20 @@
     transition: all 0.2s ease;
 }
 
-.accountDetails {
-    width: 100%;
-    font-size: 12px;
-    background: rgba(15, 15, 15, 0.95);
-    border: 2px solid #9e0d0b;
-    border-radius: 10PX;
-    align-items: center;
-    padding: 20px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 5px;
-}
-
-.details {
-    display: flex;
-    justify-content: space-between;
-    padding: 2px 0;
-    letter-spacing: 0.08em;
-    line-height: 1.2;
-    width: 100%;
-
-}
-
-
-p:first-child {
+.terms {
     color: #d1d5db;
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    width: 100%;
 }
 
-p.demo {
-    color: white;
-    font-size: 13px;
+.terms input {
+    accent-color: #3B3B3B;
+}
+
+.terms span {
+    color: #b31512;
 }
 
 .account {
@@ -224,6 +186,8 @@ p.demo {
 p.forgotPass {
     color: #b31512;
 }
+
+
 
 @media (max-width: 768px) {
     .loginContainer {
@@ -240,4 +204,7 @@ p.forgotPass {
         padding-right: 7vw;
     }
 
+    .registerBtn {
+        font-size: 18px;
+    }
 }
