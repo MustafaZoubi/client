@@ -16,7 +16,7 @@ function Navbar() {
 
             <div className={style.midSection}>
                 <Link to="/"><div className={style.navItem}>Home</div></Link>
-                <Link to="browser"><div className={style.navItem}>Browse</div></Link>
+                <Link to="browse"><div className={style.navItem}>Browse</div></Link>
                 <input
                     className={style.searchField}
                     type='text'
@@ -44,8 +44,8 @@ function Navbar() {
 
             </div>
             <div className={`${style.burgerMenu} ${burgerMenu ? style.open : null}`}>
-                <div className={style.navItem}>Home</div>
-                <div className={style.navItem}>Browse</div>
+                <Link to="/"><div className={style.navItem}>Home</div></Link>
+                <Link to="browse"><div className={style.navItem}>Browse</div></Link>
                 <Link to="login">
                     <button className={style.loginBtnMobile}>Login</button>
                 </Link>
