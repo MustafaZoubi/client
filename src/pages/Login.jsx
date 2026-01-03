@@ -37,15 +37,15 @@ export default function Login() {
                     <div className={style.accountDetails}>
                         <p className={style.demo}>Demo Credentials</p>
                         <p className={style.details}>
-                            <p>User:</p>
+                            <p className={style.pFirstchild}>User:</p>
                             <p>user@arcadia.com</p>
                         </p>
                         <p className={style.details}>
-                            <p>Admin:</p>
+                            <p className={style.pFirstchild}>Admin:</p>
                             <p>admin@arcadia.com</p>
                         </p>
                         <p className={style.details}>
-                            <p>Password:</p>
+                            <p className={style.pFirstchild}>Password:</p>
                             <p>Any password</p>
                         </p>
                     </div>
