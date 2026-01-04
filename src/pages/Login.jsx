@@ -3,6 +3,7 @@ import backVideo from "../assets/images/backVideoLogin.mp4"
 import logo from "../assets/images/BerserkLogo.png"
 import style from "../styles/login.module.css"
 import { Link } from 'react-router'
+import backPic from "../assets/images/backPic.jpg"
 export default function Login() {
     return (
 
@@ -12,7 +13,10 @@ export default function Login() {
                 src={backVideo}
                 autoPlay
                 loop
-                muted>
+                muted
+                preload="auto"
+                poster={backPic}
+            >
             </video>
             <div className={style.loginContainer}>
                 <img className={style.logo} src={logo} />

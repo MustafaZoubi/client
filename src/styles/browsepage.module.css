@@ -6,11 +6,10 @@
 
 .mainContainer {
     width: 100%;
-    min-height: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     background: rgb(11, 11, 11);
-
 }
 
 .divider {
@@ -19,15 +18,27 @@
     background-color: #770504;
 }
 
+.middleContainer {
+    display: flex;
+    padding: calc((362.906px * 1.06) - (362.906px) + 10px);
+    gap: 60px;
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+}
+
 .gamesContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320.906px, 1fr));
     width: 100%;
     height: 100%;
     gap: 20px;
-    padding: calc((362.906px * 1.06) - (362.906px));
     align-items: start;
     grid-auto-rows: 380px;
-    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
 
+.gamesContainer::-webkit-scrollbar {
+    display: none;
 }

@@ -3,7 +3,7 @@ import logoImage from "../assets/images/logo.png"
 import style from "../styles/navbar.module.css"
 import { Link } from "react-router"
 import navVideo from "../assets/images/abstractRed.mp4"
-
+import backPic from "../assets/images/abstractRedPic.jpg"
 function Navbar({ backgroundOn = false }) {
     const [menuOpen, setMenuOpen] = useState(false);
     const [burgerMenu, setBurgerMenu] = useState(false);
@@ -15,6 +15,8 @@ function Navbar({ backgroundOn = false }) {
                 loop
                 muted
                 playsInline
+                preload="auto"
+                poster={backPic}
                 className={style.video} src={navVideo} /></div> : null}
             <Link to="/">
                 <img className={style.logo} src={logoImage} alt='logo' />
