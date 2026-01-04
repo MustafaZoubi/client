@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import bigLogo from "../assets/images/bigLogo.png"
 import bgVideo from "../assets/images/backVideo.mp4";
 import { Link } from "react-router"
+import backPic from "../assets/images/backPic.jpg"
 export default function Homepage({ children }) {
     return (
         <>
@@ -15,6 +16,8 @@ export default function Homepage({ children }) {
                     loop
                     muted
                     playsInline
+                    preload="auto"
+                    poster={backPic}
                 />
 
                 {children}

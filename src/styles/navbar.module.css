@@ -77,7 +77,7 @@
     border: 1px solid #770504;
     box-shadow: 0 0 10px 0.5px #770504;
     transition: all 0.2s ease;
-
+    color: #d1d5db
 }
 
 .searchField::placeholder {
