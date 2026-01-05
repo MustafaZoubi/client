@@ -70,6 +70,9 @@ export default function ProductDetails() {
                 </div>
                 <div className={style.bottomSection}>
                     <Outlet context={"hello"} />
+                    <div className={style.similarGames}>
+                        
+                    </div>
                 </div>
             </div>
         </div>
