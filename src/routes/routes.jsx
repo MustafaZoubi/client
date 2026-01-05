@@ -3,6 +3,7 @@ import App from "../App";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import BrowsePage from "../pages/BrowsePage";
+import ProductDetails from "../pages/ProductDetails";
 
 const routes = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const routes = createBrowserRouter([
     {
         path: "browse",
         element: <BrowsePage />
+    },
+    {
+        path: "browse/details/:id",
+        element: <ProductDetails />
     }
 
 ]);
