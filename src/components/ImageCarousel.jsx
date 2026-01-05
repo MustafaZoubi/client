@@ -4,7 +4,7 @@ import { useState } from 'react';
 export default function ImageCarousel() {
     const [image, setImage] = useState(0);
 
-    const images = ['https://images.unsplash.com/photo-1725314060496-f4385a151dca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2YW1waXJlJTIwZGFyayUyMGdvdGhpY3xlbnwxfHx8fDE3Njc1NjA5OTl8MA&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1563480022566-94a6c6637362?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwdmFtcGlyZSUyMGNhc3RsZXxlbnwxfHx8fDE3Njc1NjExMjF8MA&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1635319520353-194ef0284701?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2YW1waXJlJTIwYmxvb2QlMjBtb29ufGVufDF8fHx8MTc2NzU2MTEyMXww&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1643447727844-1e2e31544237?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnb3RoaWMlMjBjYXRoZWRyYWx8ZW58MXx8fHwxNzY3NDcxNTE0fDA&ixlib=rb-4.1.0&q=80&w=1080']
+    const images = ['https://media.rawg.io/media/games/526/526881e0f5f8c1550e51df3801f96ea3.jpg', 'https://media.rawg.io/media/screenshots/b9c/b9c6546ce1488f918e6373073d800fa7.jpg', 'https://media.rawg.io/media/screenshots/801/801c5b2489abedcddf4acd94da35daaf.jpg', 'https://media.rawg.io/media/screenshots/0f7/0f7bb8958b46684d773c75d26008d800.jpg']
 
 
     return (

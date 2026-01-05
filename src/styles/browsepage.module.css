@@ -20,7 +20,7 @@
 
 .middleContainer {
     display: flex;
-    padding: calc((362.906px * 1.06) - (362.906px) + 10px);
+    padding: 40px calc((362.906px * 1.06) - (362.906px) + 4vw);
     gap: 60px;
     width: 100%;
     flex: 1;
