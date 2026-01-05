@@ -1,6 +1,7 @@
 .mainContainer {
     color: white;
-    max-width: 1000px;
+    max-width: 1200px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -10,11 +11,11 @@
 
 .mainImage {
     width: 100%;
-    max-height: 500px;
+    max-height: 560px;
     height: auto;
     border-radius: 10px;
     object-fit: cover;
-    object-position: center;
+    object-position: top center;
     min-width: 315px;
 
 }
