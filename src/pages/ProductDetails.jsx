@@ -68,8 +68,9 @@ export default function ProductDetails() {
                     </ul>
                     <div className={style.divider}></div>
                 </div>
-
-                <Outlet context={"hello"} />
+                <div className={style.bottomSection}>
+                    <Outlet context={"hello"} />
+                </div>
             </div>
         </div>
     )
