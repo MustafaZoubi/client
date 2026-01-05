@@ -1,0 +1,33 @@
+.mainContainer {
+    background: rgb(11, 11, 11);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.middleContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px 5vw;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+
+.back,
+.back>* {
+    color: #d1d5db;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+
+
+
+@media (max-width: 768px) {}
