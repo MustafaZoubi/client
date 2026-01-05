@@ -165,4 +165,52 @@ button.secondBtn {
     gap: 7px;
 }
 
+
+.nav {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding-bottom: 15px;
+}
+
+.divider {
+    min-height: 1px;
+    width: 100%;
+    background: #797979;
+}
+
+a {
+    color: #797979;
+}
+
+.selected {
+    position: relative;
+    z-index: 0;
+}
+
+.selected::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-image: linear-gradient(to right top, #0a0100, #330f09, #59110d, #800f0c, #a90b03);
+    z-index: 1;
+    top: 34.5px;
+    left: 0;
+    right: 0;
+    /* bottom: -8px; */
+    /* height: 8px; */
+}
+
+.selected a {
+    color: white;
+}
+
 @media (max-width: 768px) {}

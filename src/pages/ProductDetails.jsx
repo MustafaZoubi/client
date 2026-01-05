@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useParams } from 'react-router'
+import React, { useEffect, useState } from 'react'
+import { Outlet, useParams } from 'react-router'
 import Navbar from '../components/Navbar';
 import style from "../styles/productDetails.module.css"
 import ImageCarousel from '../components/ImageCarousel';
@@ -14,8 +14,9 @@ export default function ProductDetails() {
 
     const { id } = useParams();
     const [wishlist, setWishlist] = useState(false);
-    console.log(id)
-    console.log(wishlist)
+    const [nav, setNav] = useState(true);
+
+
     return (
         <div className={style.mainContainer}>
             <Navbar backgroundOn={true} />
@@ -60,7 +61,15 @@ export default function ProductDetails() {
                         </div>
                     </div>
                 </div>
-                
+                <div>
+                    <ul className={style.nav}>
+                        <li onClick={() => setNav(true)} className={`${nav ? style.selected : null}`}><Link to="overview">Overview</Link></li>
+                        <li onClick={() => setNav(false)} className={`${!nav ? style.selected : null}`}><Link to="achievements">Achievements</Link></li>
+                    </ul>
+                    <div className={style.divider}></div>
+                </div>
+
+                <Outlet context={"hello"} />
             </div>
         </div>
     )

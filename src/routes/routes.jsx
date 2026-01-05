@@ -4,6 +4,8 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import BrowsePage from "../pages/BrowsePage";
 import ProductDetails from "../pages/ProductDetails";
+import Overview from "../components/Overview";
+import Achievements from "../components/Achievements";
 
 const routes = createBrowserRouter([
     {
@@ -24,7 +26,17 @@ const routes = createBrowserRouter([
     },
     {
         path: "browse/details/:id",
-        element: <ProductDetails />
+        element: <ProductDetails />,
+        children: [
+            {
+                path: "overview",
+                element: <Overview />
+            },
+            {
+                path: "achievements",
+                element: <Achievements />
+            }
+        ],
     }
 
 ]);
