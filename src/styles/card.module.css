@@ -60,9 +60,17 @@ img.icon {
 
 a {
     color: white;
+
 }
 
 .title {
     font-size: 25px;
     font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .card>img {
+        height: calc(0.5 * 362.906px);
+
+    }
 }
