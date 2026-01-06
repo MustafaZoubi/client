@@ -48,7 +48,7 @@ export default function ProductDetails() {
                             </div>
                             <div className={style.line}>
                                 <p><FaRegUser />Publisher</p>
-                                <p>Paradox Interactive</p>
+                                <p className={style.shit}>Paradox Interactive</p>
                             </div>
                             <div className={style.line}>
                                 <p><MdOutlineMonitor />Platforms</p>

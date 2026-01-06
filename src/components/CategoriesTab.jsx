@@ -8,9 +8,9 @@ import { BsNintendoSwitch } from "react-icons/bs";
 import { RiBoxingFill, RiSwordFill } from "react-icons/ri";
 import { MdSportsCricket } from "react-icons/md";
 
-export default function CategoriesTab() {
+export default function CategoriesTab({ className, mobileNav }) {
     return (
-        <div className={style.navFilter}>
+        <div className={`${style.navFilter} ${className} ${mobileNav}`}>
             {/* Section 1 */}
             <div className={style.section}>
                 New Releases

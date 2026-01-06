@@ -14,9 +14,9 @@
 
 .card>img {
     width: 100%;
-    height: calc(0.6 * 362.906px);
+    max-height: calc(0.6 * 362.906px);
     object-fit: cover;
-    object-position: 0 30%;
+    object-position: center 10%;
     clip-path: inset(0 round 10px);
 
 }

@@ -6,6 +6,8 @@
     flex-direction: column;
     gap: 10px;
     overflow: hidden;
+    min-width: 315px;
+
 }
 
 

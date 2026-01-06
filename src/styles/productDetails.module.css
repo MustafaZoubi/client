@@ -11,9 +11,14 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 40px calc((362.906px * 1.06) - (362.906px) + 4vw);
+    padding: 5vw;
     gap: 20px;
     overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.middleContainer::-webkit-scrollbar {
+    display: none;
 }
 
 .back,
@@ -41,6 +46,8 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    /* max-width: 500px; */
+    width: 100%;
 }
 
 .gameTitle {
@@ -70,15 +77,13 @@
 
 .purchaseDetails {
     background: rgba(15, 15, 15, 0.95);
-    min-width: 500px;
-    width: 100%;
     max-height: 250px;
     border-radius: 10px;
     border: 0.2px solid #ffffff17;
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 10px 40px;
+    padding: 40px;
     gap: 20px;
     align-items: start;
     justify-content: center;
@@ -94,7 +99,7 @@
 
 .purchaseDetails button {
     width: 100%;
-    padding: 15px 80px;
+    padding: 15px;
     border: none;
     border-radius: 8px;
     color: #d1d5db;
@@ -130,7 +135,6 @@ button.secondBtn {
 
 .shortDetailedInfo {
     background: rgba(15, 15, 15, 0.95);
-    max-width: 500px;
     width: 100%;
     max-height: 200px;
     border-radius: 10px;
@@ -138,7 +142,7 @@ button.secondBtn {
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 10px 40px;
+    padding: 40px;
     gap: 30px;
     align-items: start;
     justify-content: center;
@@ -151,13 +155,19 @@ button.secondBtn {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    gap: 10px;
 }
+
 
 .line>p:first-child {
     display: flex;
     gap: 10px;
     align-items: center;
     color: #999999;
+}
+
+.shit {
+    text-align: right;
 }
 
 .platforms {
@@ -206,8 +216,7 @@ a {
     top: 34.5px;
     left: 0;
     right: 0;
-    /* bottom: -8px; */
-    /* height: 8px; */
+
 }
 
 .selected a {
@@ -231,6 +240,7 @@ a {
     gap: 20px;
     justify-content: center;
     color: white;
+    flex: 1;
 
 
 }
@@ -244,5 +254,41 @@ a {
     font-size: 23px;
 }
 
+@media (max-width: 1200px) and (min-width: 769px) {
+    .firstSection {
+        flex-direction: column;
+    }
 
-@media (max-width: 768px) {}
+    .shortInfo {
+        max-width: none;
+        gap: 20px;
+
+    }
+
+    .bottomSection {
+        flex-direction: column;
+    }
+
+}
+
+
+
+@media (max-width: 768px) {
+    .firstSection {
+        flex-direction: column;
+    }
+
+    .shortInfo {
+        max-width: none;
+        gap: 20px;
+
+    }
+
+    .gameTitle {
+        font-size: 28px;
+    }
+
+    .bottomSection {
+        flex-direction: column;
+    }
+}

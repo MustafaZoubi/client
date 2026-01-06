@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    flex: 1;
+    flex: 2;
+    max-width: 1200px;
+    width: 100%;
 }
 
 .aboutContainer,
@@ -11,7 +13,6 @@
     border-radius: 10px;
     border: 0.2px solid #ffffff17;
     padding: 40px;
-    max-width: 1200px;
     display: flex;
     flex-direction: column;
     gap: 20px;
