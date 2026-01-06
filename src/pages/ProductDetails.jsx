@@ -9,7 +9,7 @@ import { FaStar, FaRegHeart, FaRegUser } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineMonitor } from "react-icons/md";
-
+import SimilarGamesCard from '../components/SimilarGamesCard';
 export default function ProductDetails() {
 
     const { id } = useParams();
@@ -71,7 +71,9 @@ export default function ProductDetails() {
                 <div className={style.bottomSection}>
                     <Outlet context={"hello"} />
                     <div className={style.similarGames}>
-                        
+                        <p className={style.heading}>Similar Games</p>
+                        <SimilarGamesCard />
+                        <SimilarGamesCard />
                     </div>
                 </div>
             </div>

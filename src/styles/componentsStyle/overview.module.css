@@ -9,7 +9,7 @@
     background: rgba(15, 15, 15, 0.95);
     border-radius: 10px;
     border: 0.2px solid #ffffff17;
-    padding: 20px 40px;
+    padding: 40px;
     max-width: 1170.500px;
     display: flex;
     flex-direction: column;
@@ -17,6 +17,11 @@
     min-height: 200px;
     justify-content: center;
     color: white;
+}
+
+.requirments {
+    flex: 1;
+
 }
 
 

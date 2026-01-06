@@ -29,6 +29,11 @@ const routes = createBrowserRouter([
         element: <ProductDetails />,
         children: [
             {
+                index: true,
+                element: <Overview />
+
+            },
+            {
                 path: "overview",
                 element: <Overview />
             },
