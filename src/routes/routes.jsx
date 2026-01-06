@@ -5,8 +5,7 @@ import Signup from "../pages/Signup";
 import BrowsePage from "../pages/BrowsePage";
 import ProductDetails from "../pages/ProductDetails";
 import Overview from "../components/Overview";
-import Achievements from "../components/Achievements";
-
+import AchievementsLayout from "../components/AchievementsLayout";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -31,7 +30,6 @@ const routes = createBrowserRouter([
             {
                 index: true,
                 element: <Overview />
-
             },
             {
                 path: "overview",
@@ -39,7 +37,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "achievements",
-                element: <Achievements />
+                element: <AchievementsLayout />
             }
         ],
     }

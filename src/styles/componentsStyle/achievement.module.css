@@ -1,0 +1,69 @@
+.achievementsContainer {
+    background: rgba(15, 15, 15, 0.95);
+    border-radius: 10px;
+    border: 0.2px solid #ffffff17;
+    padding: 30px 40px;
+    /* max-height: 130px; */
+    display: flex;
+    gap: 20px;
+    height: fit-content;
+    width: 100%;
+    align-items: center;
+    transition: transform 0.3s ease;
+
+}
+
+.achievementsContainer:hover {
+    transform: scale(1.06);
+    transition: transform 0.3s ease;
+}
+
+
+.trophyBackground {
+    background-image: linear-gradient(to right bottom, #a90b03, #830317, #590a1b, #300d15, #000000);
+    height: fit-content;
+    padding: 15px;
+    border-radius: 10px;
+    height: 62px;
+    width: 62px;
+}
+
+.icon {
+    height: 32px;
+    width: 32px;
+    color: white;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+
+.first,
+.second,
+.third {
+    font-size: 14px;
+}
+
+.first {
+    color: white;
+}
+
+.second {
+    color: #797979;
+}
+
+.third {
+    color: #bf0603;
+}
+
+.gridContainer {
+    display: grid;
+    flex: 1;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 20px;
+    align-content: start;
+
+}
