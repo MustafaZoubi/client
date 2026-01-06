@@ -100,12 +100,4 @@
     .active {
         display: grid;
     }
-
-    .gamesContainer {
-
-        grid-template-columns: repeat(auto-fit, minmax(270.906px, 1fr));
-
-
-    }
-
 }
