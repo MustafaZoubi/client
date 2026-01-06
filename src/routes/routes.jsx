@@ -4,7 +4,8 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import BrowsePage from "../pages/BrowsePage";
 import ProductDetails from "../pages/ProductDetails";
-
+import Overview from "../components/Overview";
+import AchievementsLayout from "../components/AchievementsLayout";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -24,7 +25,21 @@ const routes = createBrowserRouter([
     },
     {
         path: "browse/details/:id",
-        element: <ProductDetails />
+        element: <ProductDetails />,
+        children: [
+            {
+                index: true,
+                element: <Overview />
+            },
+            {
+                path: "overview",
+                element: <Overview />
+            },
+            {
+                path: "achievements",
+                element: <AchievementsLayout />
+            }
+        ],
     }
 
 ]);

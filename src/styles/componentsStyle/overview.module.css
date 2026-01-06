@@ -1,0 +1,73 @@
+.overview {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1;
+}
+
+.aboutContainer,
+.requirments {
+    background: rgba(15, 15, 15, 0.95);
+    border-radius: 10px;
+    border: 0.2px solid #ffffff17;
+    padding: 40px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 200px;
+    justify-content: center;
+    color: white;
+}
+
+.requirments {
+    flex: 1;
+
+}
+
+
+
+
+.title {
+    color: white;
+    font-size: 23px;
+}
+
+.description {
+    color: #999999;
+    font-size: 16px;
+}
+
+
+
+
+.divider {
+    min-height: 1px;
+    width: 100%;
+    background: #797979;
+}
+
+.unkonwName {
+    display: flex;
+    gap: 40px;
+}
+
+.minimum,
+.recommended {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 16px;
+}
+
+.recommended>div,
+.minimum>div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.one {
+    color: #999999;
+}

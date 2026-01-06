@@ -79,7 +79,7 @@
     padding: 10px 80px;
     border: none;
     border-radius: 8px;
-    color: #d1d5db;
+    color: white;
     box-shadow: 0 0 10px 3px #b90e0a;
     font-weight: 600;
     max-width: 400px;
@@ -90,6 +90,11 @@
 
 }
 
+.exploreBtn a {
+    color: white;
+    width: 100%;
+}
+
 .exploreBtn:hover {
     cursor: pointer;
     background-color: #9e0d0b;
@@ -98,7 +103,6 @@
     transition: all 0.2s ease;
 
 }
-
 
 
 @media (max-width: 1024px) and (min-width: 769px) {
