@@ -53,7 +53,7 @@ function Navbar({ backgroundOn = false }) {
             </div>
             <div className={`${style.burgerMenu} ${burgerMenu ? style.open : null}`}>
                 <Link to="/"><div className={style.navItem}>Home</div></Link>
-                <Link to="browse"><div className={style.navItem}>Browse</div></Link>
+                <Link to="../browse"><div className={style.navItem}>Browse</div></Link>
                 <Link to="../login">
                     <button className={style.loginBtnMobile}>Login</button>
                 </Link>
