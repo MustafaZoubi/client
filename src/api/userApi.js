@@ -26,3 +26,5 @@ export const updateProfileApi = async (token, payload) => {
     if (!res.ok) throw new Error(data.message);
     return data;
 };
+
+//test
