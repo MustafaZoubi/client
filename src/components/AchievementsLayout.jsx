@@ -11,7 +11,6 @@ export default function AchievementsLayout() {
             <Achievements />
             <Achievements />
             <Achievements />
-
         </div>
     )
 }
