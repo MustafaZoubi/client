@@ -69,6 +69,12 @@
     max-width: 1200px;
 }
 
+.loading {
+    color: #d1d5db;
+    padding: 30px;
+}
+
+
 @media (max-width: 768px) {
     .gridContainer {
         display: grid;

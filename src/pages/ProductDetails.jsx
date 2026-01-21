@@ -1,82 +1,134 @@
-import React, { useEffect, useState } from 'react'
-import { Outlet, useParams } from 'react-router'
-import Navbar from '../components/Navbar';
-import style from "../styles/productDetails.module.css"
-import ImageCarousel from '../components/ImageCarousel';
-import { Link } from "react-router"
-import { IoIosArrowBack } from "react-icons/io";
-import { FaStar, FaRegHeart, FaRegUser } from "react-icons/fa";
-import { IoCartOutline } from "react-icons/io5";
-import { SlCalender } from "react-icons/sl";
-import { MdOutlineMonitor } from "react-icons/md";
-import SimilarGamesCard from '../components/SimilarGamesCard';
+import React, { useEffect, useState } from "react";
+import { useParams, Outlet, Link, NavLink } from "react-router";
+import Navbar from "../components/Navbar";
+import style from "../styles/productDetails.module.css";
+import { fetchGameById } from "../api/gameApi";
+
 export default function ProductDetails() {
-
     const { id } = useParams();
-    const [wishlist, setWishlist] = useState(false);
-    const [nav, setNav] = useState(true);
+    const [game, setGame] = useState(null);
+    const [activeImage, setActiveImage] = useState("");
 
+    useEffect(() => {
+        fetchGameById(id)
+            .then((data) => {
+                setGame(data);
+                setActiveImage(data.images.background);
+            })
+            .catch(console.error);
+    }, [id]);
+
+    if (!game) {
+        return (
+            <>
+                <Navbar backgroundOn />
+                <div className={style.loading}>Loading game...</div>
+            </>
+        );
+    }
 
     return (
-        <div className={style.mainContainer}>
-            <Navbar backgroundOn={true} />
-            <div className={style.middleContainer}>
+        <>
+            <Navbar backgroundOn />
 
-                <div className={style.back} >
-                    <IoIosArrowBack />
-                    <Link to="../browse">Back to Browse</Link>
-                </div>
-                {/* //Image + Short Details */}
-                <div className={style.firstSection}>
-                    <ImageCarousel className={style.carousel} />
-                    <div className={style.shortInfo}>
-                        <p className={style.gameTitle}>Vampire: The Masquerade – Bloodlines 2</p>
-                        <div className={style.gameRating}>
-                            <FaStar />
-                            4.5
+            <div className={style.page}>
+                {/* Back */}
+                <Link to="/browse" className={style.back}>
+                    ← Back to Browse
+                </Link>
+
+                {/* TOP SECTION */}
+                <div className={style.topSection}>
+                    {/* LEFT: IMAGES */}
+                    <div className={style.imageSection}>
+                        <img
+                            src={activeImage}
+                            alt={game.title}
+                            className={style.heroImage}
+                        />
+
+                        <div className={style.thumbnailRow}>
+                            {game.images.screenshots.map((img, i) => (
+                                <img
+                                    key={i}
+                                    src={img}
+                                    alt="screenshot"
+                                    className={`${style.thumbnail} ${activeImage === img ? style.active : ""
+                                        }`}
+                                    onClick={() => setActiveImage(img)}
+                                />
+                            ))}
                         </div>
-                        <div className={style.gameCategory}>Action</div>
-                        <div className={style.purchaseDetails}>
-                            <p>$59.99</p>
-                            <button><IoCartOutline />Add to Cart</button>
-                            <button onClick={() => setWishlist(!wishlist)} className={`${style.secondBtn} ${wishlist ? style.wishlist : null}`}><FaRegHeart />Wishlist</button>
+                    </div>
+
+                    {/* RIGHT: INFO */}
+                    <div className={style.infoSection}>
+                        <h1 className={style.title}>{game.title}</h1>
+
+                        <div className={style.rating}>
+                            ⭐ 4.5
+                            {game.genres?.map((g) => (
+                                <span key={g} className={style.genre}>
+                                    {g}
+                                </span>
+                            ))}
                         </div>
-                        <div className={style.shortDetailedInfo}>
-                            <div className={style.line}>
-                                <p><SlCalender />Release Date</p>
-                                <p>9/15/2024</p>
+
+                        <div className={style.priceBox}>
+                            <div className={style.price}>${game.price.toFixed(2)}</div>
+                            <button className={style.cartBtn}>🛒 Add to Cart</button>
+                            <button className={style.wishlistBtn}>♡ Wishlist</button>
+                        </div>
+
+                        <div className={style.meta}>
+                            <div>
+                                <span>Release Date</span>
+                                <p>{new Date(game.releaseDate).toLocaleDateString()}</p>
                             </div>
-                            <div className={style.line}>
-                                <p><FaRegUser />Publisher</p>
-                                <p className={style.shit}>Paradox Interactive</p>
+
+                            <div>
+                                <span>Publisher</span>
+                                <p>{game.publisher}</p>
                             </div>
-                            <div className={style.line}>
-                                <p><MdOutlineMonitor />Platforms</p>
-                                <p className={style.platforms}>
-                                    <span>PC</span>
-                                    <span>PlayStation</span>
-                                    <span>Xbox</span>
+
+                            <div>
+                                <span>Platforms</span>
+                                <p>
+                                    {game.platforms?.pc && "PC "}
+                                    {game.platforms?.playstation && "PlayStation "}
+                                    {game.platforms?.xbox && "Xbox "}
+                                    {game.platforms?.switch && "Switch"}
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <ul className={style.nav}>
-                        <li onClick={() => setNav(true)} className={`${nav ? style.selected : null}`}><Link to="overview">Overview</Link></li>
-                        <li onClick={() => setNav(false)} className={`${!nav ? style.selected : null}`}><Link to="achievements">Achievements</Link></li>
-                    </ul>
-                    <div className={style.divider}></div>
+
+                {/* TABS */}
+                <div className={style.tabs}>
+                    <NavLink
+                        end
+                        to=""
+                        className={({ isActive }) =>
+                            isActive ? style.activeTab : style.tab
+                        }
+                    >
+                        Overview
+                    </NavLink>
+
+                    <NavLink
+                        to="achievements"
+                        className={({ isActive }) =>
+                            isActive ? style.activeTab : style.tab
+                        }
+                    >
+                        Achievements
+                    </NavLink>
                 </div>
-                <div className={style.bottomSection}>
-                    <Outlet context={"hello"} />
-                    <div className={style.similarGames}>
-                        <p className={style.heading}>Similar Games</p>
-                        <SimilarGamesCard />
-                        <SimilarGamesCard />
-                    </div>
-                </div>
+
+                {/* TAB CONTENT */}
+                <Outlet context={{ game }} />
             </div>
-        </div>
-    )
+        </>
+    );
 }
