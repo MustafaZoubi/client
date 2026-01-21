@@ -1,27 +1,41 @@
 import React, { useEffect, useState } from "react";
-import Card from "../components/Card.jsx";
-import Navbar from "../components/Navbar.jsx";
-import CategoriesTab from "../components/CategoriesTab.jsx";
+import Navbar from "../components/Navbar";
+import CategoriesTab from "../components/CategoriesTab";
+import Card from "../components/Card";
 import style from "../styles/browsepage.module.css";
 import { fetchGames } from "../api/gameApi";
+import { fetchRawgImages } from "../api/rawgApi";
 
-function BrowsePage() {
+export default function BrowsePage() {
     const [games, setGames] = useState([]);
 
     useEffect(() => {
-        fetchGames().then(setGames).catch(console.error);
+        const loadGames = async () => {
+            const dbGames = await fetchGames();
+
+            const enriched = await Promise.all(
+                dbGames.map(async (g) => {
+                    const images = await fetchRawgImages(g.rawgId);
+                    return { ...g, coverImage: images.background };
+                })
+            );
+
+            setGames(enriched);
+        };
+
+        loadGames().catch(console.error);
     }, []);
 
     return (
         <div className={style.mainContainer}>
-            <Navbar backgroundOn={true} />
-            <div className={style.divider}></div>
+            <Navbar backgroundOn />
+            <div className={style.divider} />
 
             <div className={style.middleContainer}>
                 <CategoriesTab className={style.leftNav} />
 
                 <div className={style.gamesContainer}>
-                    {games.map((game) => (
+                    {games.map(game => (
                         <Card key={game._id} game={game} />
                     ))}
                 </div>
@@ -29,5 +43,3 @@ function BrowsePage() {
         </div>
     );
 }
-
-export default BrowsePage;

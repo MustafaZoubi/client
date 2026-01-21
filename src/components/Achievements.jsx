@@ -1,6 +1,6 @@
 import React from "react";
-import style from "../styles/componentsStyle/achievement.module.css";
 import { LuTrophy } from "react-icons/lu";
+import style from "../styles/componentsStyle/achievement.module.css";
 
 export default function Achievements({ achievement }) {
     return (

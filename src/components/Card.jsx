@@ -9,7 +9,7 @@ export default function Card({ game }) {
     return (
         <Link to={`details/${game._id}`}>
             <div className={style.card}>
-                <img src={game.coverImage} />
+                <img src={game.coverImage} alt={game.title} />
 
                 <div className={style.bottomSection}>
                     <div className={style.cost}>

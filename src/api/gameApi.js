@@ -1,7 +1,15 @@
-export const fetchGameById = async (id) => {
-    const res = await fetch(`http://localhost:5000/api/games/${id}`);
-    const data = await res.json();
+const BASE_URL = "http://localhost:5000/api/games";
 
-    if (!res.ok) throw new Error(data.message);
+export const fetchGames = async () => {
+    const res = await fetch(BASE_URL);
+    const data = await res.json();
+    if (!res.ok) throw new Error("Failed to fetch games");
+    return data;
+};
+
+export const fetchGameById = async (id) => {
+    const res = await fetch(`${BASE_URL}/${id}`);
+    const data = await res.json();
+    if (!res.ok) throw new Error("Failed to fetch game");
     return data;
 };
