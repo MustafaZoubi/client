@@ -1,5 +1,6 @@
 const BASE_URL = "http://localhost:5000/api/auth";
 
+
 export async function loginApi(payload) {
     const res = await fetch(`${BASE_URL}/login`, {
         method: "POST",
