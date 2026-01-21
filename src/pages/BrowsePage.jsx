@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from "../components/Card.jsx";
 import Navbar from "../components/Navbar.jsx";
 import CategoriesTab from '../components/CategoriesTab.jsx';
@@ -14,7 +14,10 @@ function BrowsePage() {
     useEffect(() => {
         fetchGames()
             .then(setGames)
-            .catch(console.error);
+            .catch(err => {
+                console.error(err);
+                setGames([]); // fail-safe
+            });
     }, []);
 
     return (
@@ -26,13 +29,16 @@ function BrowsePage() {
                 <CategoriesTab className={style.leftNav} />
 
                 <div className={style.gamesContainer}>
-                    {games.map((game) => (
+                    {games.map(game => (
                         <Card key={game._id} game={game} />
                     ))}
                 </div>
             </div>
 
-            <div onClick={() => setMobNav(!mobNav)} className={style.burgerMenu}>
+            <div
+                onClick={() => setMobNav(!mobNav)}
+                className={style.burgerMenu}
+            >
                 {mobNav ? <IoCloseSharp /> : <GiHamburgerMenu />}
             </div>
 
