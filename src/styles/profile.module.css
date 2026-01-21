@@ -1,0 +1,93 @@
+.profileContainer {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #1a0000, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.card {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(10, 10, 10, 0.95);
+    border: 2px solid #9e0d0b;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    gap: 40px;
+    box-shadow: 0 0 30px rgba(158, 13, 11, 0.4);
+}
+
+.avatarSection {
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2a0000, #9e0d0b);
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px #9e0d0b;
+}
+
+.infoSection {
+    flex: 1;
+    color: #e5e5e5;
+}
+
+.username {
+    font-size: 36px;
+    letter-spacing: 0.1em;
+}
+
+.title {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #b90e0a;
+    letter-spacing: 0.15em;
+}
+
+.status {
+    margin-top: 14px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ccc;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #b90e0a;
+    border-radius: 50%;
+}
+
+.editBtn {
+    background: linear-gradient(to left, #0a0100, #b90e0a);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #b90e0a;
+}
+
+.editBtn:hover {
+    background: #9e0d0b;
+}
+
+.loading {
+    color: white;
+    text-align: center;
+    padding: 100px;
+}
