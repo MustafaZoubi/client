@@ -47,9 +47,11 @@ function Navbar({ backgroundOn = false }) {
 
             {/* RIGHT SECTION (DESKTOP) */}
             <div className={style.rightSection}>
-                <span className={`material-symbols-outlined ${style.cartIcon}`}>
-                    shopping_cart
-                </span>
+                <Link to="/cart">
+                    <span className={`material-symbols-outlined ${style.cartIcon}`}>
+                        shopping_cart
+                    </span>
+                </Link>
 
                 {!auth.user ? (
                     <>

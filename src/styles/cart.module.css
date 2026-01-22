@@ -1,0 +1,260 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.mainContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(11, 11, 11);
+}
+
+.middleContainer {
+    padding: 40px calc(4vw);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    flex: 1;
+}
+
+.back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #d1d5db;
+}
+
+.back a {
+    color: #d1d5db;
+}
+
+.headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.title {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.clearBtn {
+    background: transparent;
+    border-radius: 8px;
+    padding: 10px 16px;
+    border: 1px solid #b90e0a;
+    color: #d1d5db;
+    box-shadow: 0 0 10px 2px #9e0d0b;
+}
+
+.clearBtn:hover {
+    cursor: pointer;
+    background-color: #290303;
+}
+
+.loading,
+.error {
+    color: #d1d5db;
+    padding: 20px;
+    border: 1px solid #770504;
+    border-radius: 10px;
+    background: rgba(15, 15, 15, 0.95);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
+    width: 100%;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.itemRow {
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid #770504;
+    box-shadow: 0 0 10px 0.5px #770504;
+    border-radius: 10px;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr 140px 160px;
+    gap: 10px;
+    align-items: center;
+    color: white;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.gameName {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.price {
+    color: #999999;
+    font-weight: 600;
+}
+
+.qty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.qtyBtn {
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 6px 10px;
+    border: 1px solid #b90e0a;
+    color: #d1d5db;
+    box-shadow: 0 0 10px 2px #9e0d0b;
+}
+
+.qtyBtn:hover {
+    cursor: pointer;
+    background-color: #290303;
+}
+
+.qtyNum {
+    min-width: 22px;
+    text-align: center;
+    font-weight: 800;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.lineTotal {
+    font-weight: 800;
+}
+
+.removeBtn {
+    background-color: #b90e0a;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    color: #d1d5db;
+    box-shadow: 0 0 10px 3px #b90e0a;
+    font-weight: 600;
+}
+
+.removeBtn:hover {
+    cursor: pointer;
+    background-color: #9e0d0b;
+}
+
+.summary {
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid #770504;
+    box-shadow: 0 0 10px 0.5px #770504;
+    border-radius: 10px;
+    padding: 16px;
+    color: white;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.summaryTitle {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.summaryLine {
+    display: flex;
+    justify-content: space-between;
+    color: #d1d5db;
+    font-weight: 600;
+}
+
+.summaryDivider {
+    height: 2px;
+    box-shadow: 0 0 10px 1px #770504;
+    background-color: #770504;
+}
+
+.checkoutBtn {
+    background-color: #b90e0a;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 8px;
+    color: #d1d5db;
+    box-shadow: 0 0 15px 3px #b90e0a;
+    font-weight: 700;
+    width: 100%;
+    font-size: 16px;
+    background-image: linear-gradient(to left, #0A0100, #a90b03);
+}
+
+.checkoutBtn:hover {
+    cursor: pointer;
+    background-color: #9e0d0b;
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+}
+
+.empty {
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid #770504;
+    box-shadow: 0 0 10px 0.5px #770504;
+    border-radius: 10px;
+    padding: 30px;
+    color: #d1d5db;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.browseBtn {
+    background-color: #b90e0a;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: #d1d5db;
+    box-shadow: 0 0 10px 3px #b90e0a;
+    font-weight: 700;
+}
+
+/* Responsive like your style approach */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .itemRow {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .right {
+        align-items: flex-start;
+    }
+
+    .headerRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

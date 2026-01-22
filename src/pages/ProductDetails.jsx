@@ -11,12 +11,23 @@ import { SlCalender } from "react-icons/sl";
 import { MdOutlineMonitor } from "react-icons/md";
 import SimilarGamesCard from '../components/SimilarGamesCard';
 import { fetchGameById } from "../api/gameApi";
+import { addToCartApi } from "../api/cartApi";
+
+
 
 export default function ProductDetails() {
     const { id } = useParams();
     const [game, setGame] = useState(null);
     const [wishlist, setWishlist] = useState(false);
     const [nav, setNav] = useState(true);
+
+    const handleAddToCart = async () => {
+        try {
+            await addToCartApi(game._id, 1);
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
     useEffect(() => {
         fetchGameById(id)
@@ -53,8 +64,9 @@ export default function ProductDetails() {
 
                         <div className={style.purchaseDetails}>
                             <p>${game.price}</p>
-                            <button><IoCartOutline />Add to Cart</button>
-                            <button
+                            <button onClick={handleAddToCart}>
+                                <IoCartOutline />Add to Cart
+                            </button>                            <button
                                 onClick={() => setWishlist(!wishlist)}
                                 className={`${style.secondBtn} ${wishlist ? style.wishlist : ""}`}
                             >
