@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000/api/auth";
+const BASE_URL = `${import.meta.env.VITE_SERVER_URL}/api/auth`;
 
 
 export async function loginApi(payload) {

@@ -9,7 +9,7 @@ import { IoCartOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineMonitor } from "react-icons/md";
 import SimilarGamesCard from "../components/SimilarGamesCard";
-import { fetchGameById } from "../api/gameApi";
+import { fetchGameById, fetchSimilarGames } from "../api/gameApi";
 import { addToCartApi } from "../api/cartApi";
 import CartToast from "../components/CartToast";
 import { toggleWishlistApi } from "../api/wishlistApi";
@@ -18,9 +18,26 @@ export default function ProductDetails() {
     const { id } = useParams();
 
     const [game, setGame] = useState(null);
+    const [similarGames, setSimilarGames] = useState([]);
     const [wishlist, setWishlist] = useState(false);
     const [nav, setNav] = useState(true);
     const [showToast, setShowToast] = useState(false);
+
+    useEffect(() => {
+        const load = async () => {
+            try {
+                const g = await fetchGameById(id);
+                setGame(g);
+
+                const similar = await fetchSimilarGames(id);
+                setSimilarGames(similar || []);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        load();
+    }, [id]);
 
     const handleAddToCart = async () => {
         try {
@@ -31,20 +48,14 @@ export default function ProductDetails() {
         }
     };
 
-    const toggleWishlist = async () => {
+    const handleWishlist = async () => {
         try {
             await toggleWishlistApi(id);
             setWishlist((prev) => !prev);
         } catch (e) {
-            console.error(e.message);
+            console.error(e);
         }
     };
-
-    useEffect(() => {
-        fetchGameById(id)
-            .then(setGame)
-            .catch(console.error);
-    }, [id]);
 
     if (!game) return null;
 
@@ -58,11 +69,13 @@ export default function ProductDetails() {
             />
 
             <div className={style.middleContainer}>
+                {/* BACK */}
                 <div className={style.back}>
                     <IoIosArrowBack />
                     <Link to="../browse">Back to Browse</Link>
                 </div>
 
+                {/* TOP SECTION */}
                 <div className={style.firstSection}>
                     <ImageCarousel images={game.images} />
 
@@ -81,13 +94,11 @@ export default function ProductDetails() {
                             <p>${game.price}</p>
 
                             <button onClick={handleAddToCart}>
-                                <IoCartOutline />
-                                Add to Cart
+                                <IoCartOutline /> Add to Cart
                             </button>
 
-                            {/* ❤️ WISHLIST BUTTON */}
                             <button
-                                onClick={toggleWishlist}
+                                onClick={handleWishlist}
                                 className={`${style.secondBtn} ${wishlist ? style.wishlistActive : ""
                                     }`}
                             >
@@ -98,39 +109,33 @@ export default function ProductDetails() {
 
                         <div className={style.shortDetailedInfo}>
                             <div className={style.line}>
+                                <p><SlCalender /> Release Date</p>
                                 <p>
-                                    <SlCalender /> Release Date
-                                </p>
-                                <p>
-                                    {new Date(
-                                        game.releaseDate
-                                    ).toLocaleDateString()}
+                                    {new Date(game.releaseDate).toLocaleDateString()}
                                 </p>
                             </div>
 
                             <div className={style.line}>
-                                <p>
-                                    <FaRegUser /> Publisher
-                                </p>
+                                <p><FaRegUser /> Publisher</p>
                                 <p>{game.publisher}</p>
                             </div>
 
                             <div className={style.line}>
-                                <p>
-                                    <MdOutlineMonitor /> Platforms
-                                </p>
+                                <p><MdOutlineMonitor /> Platforms</p>
                                 <p className={style.platforms}>
-                                    {game.platforms.pc && <span>PC</span>}
-                                    {game.platforms.playstation && (
+                                    {game.platforms?.pc && <span>PC</span>}
+                                    {game.platforms?.playstation && (
                                         <span>PlayStation</span>
                                     )}
-                                    {game.platforms.xbox && <span>Xbox</span>}
+                                    {game.platforms?.xbox && <span>Xbox</span>}
+                                    {game.platforms?.switch && <span>Switch</span>}
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                {/* NAV */}
                 <div>
                     <ul className={style.nav}>
                         <li
@@ -151,13 +156,28 @@ export default function ProductDetails() {
                     <div className={style.divider}></div>
                 </div>
 
+                {/* BOTTOM */}
                 <div className={style.bottomSection}>
                     <Outlet context={game} />
 
+                    {/* SIMILAR GAMES */}
                     <div className={style.similarGames}>
                         <p className={style.heading}>Similar Games</p>
-                        <SimilarGamesCard />
-                        <SimilarGamesCard />
+
+                        {similarGames.length === 0 ? (
+                            <p className={style.empty}>
+                                No similar games found.
+                            </p>
+                        ) : (
+                            <div className={style.similarGrid}>
+                                {similarGames.map((g) => (
+                                    <SimilarGamesCard
+                                        key={g._id}
+                                        game={g}
+                                    />
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
