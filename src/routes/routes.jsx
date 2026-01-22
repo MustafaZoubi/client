@@ -9,12 +9,11 @@ import AchievementsLayout from "../components/AchievementsLayout";
 import Profile from "../pages/Profile";
 import CartPage from "../pages/CartPage";
 
-/* ADMIN */
-import AdminRoute from "../components/admin/AdminRoute";
-import AdminLayout from "../admin/AdminLayout";
-import AdminUsers from "../admin/AdminUsers";
-import AdminGames from "../admin/AdminGames";
-import AdminAchievements from "../admin/AdminAchievements";
+import AdminRoute from "../pages/admin/AdminRoutes";
+import AdminLayout from "../pages/admin/AdminLayout"
+import AdminUsers from "../pages/admin/AdminUsers"
+import AdminGames from "../pages/admin/AdminGames"
+import AdminAchievements from "../pages/admin/AdminAchievements"
 
 const routes = createBrowserRouter([
     {

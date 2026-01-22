@@ -1,0 +1,32 @@
+.container {
+    height: 100vh;
+    display: flex;
+    background: radial-gradient(circle at top, #1a0000, #000);
+    overflow: hidden;
+}
+
+.content {
+    flex: 1;
+
+    padding: 40px;
+    color: white;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+    min-width: 0;
+}
+
+.content>div {
+    max-width: 100%;
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}

@@ -17,6 +17,10 @@ export default function AdminSidebar() {
             <NavLink to="achievements" className={style.link}>
                 Achievements
             </NavLink>
+
+            <NavLink to="/" className={style.link}>
+                Home
+            </NavLink>
         </aside>
     );
 }

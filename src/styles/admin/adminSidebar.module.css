@@ -3,16 +3,39 @@
     background: #0b0000;
     border-right: 2px solid #9e0d0b;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex;
 }
 
 .logo {
     color: #b90e0a;
     margin-bottom: 40px;
+    font-size: 22px;
 }
 
-a {
+.link {
     display: block;
     margin: 20px 0;
     color: white;
     text-decoration: none;
+    font-size: 16px;
+    height: fit-content;
+}
+
+.link:hover {
+    color: #ff2b2b;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 100%;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 2px solid #9e0d0b;
+    }
+
+    .link {
+        margin: 12px 0;
+    }
 }
