@@ -63,10 +63,7 @@ export default function ProductDetails() {
         <div className={style.mainContainer}>
             <Navbar backgroundOn />
 
-            <CartToast
-                show={showToast}
-                onClose={() => setShowToast(false)}
-            />
+            <CartToast show={showToast} onClose={() => setShowToast(false)} />
 
             <div className={style.middleContainer}>
                 {/* BACK */}
@@ -75,7 +72,7 @@ export default function ProductDetails() {
                     <Link to="../browse">Back to Browse</Link>
                 </div>
 
-                {/* TOP SECTION */}
+                {/* TOP */}
                 <div className={style.firstSection}>
                     <ImageCarousel images={game.images} />
 
@@ -86,8 +83,13 @@ export default function ProductDetails() {
                             <FaStar /> 4.5
                         </div>
 
-                        <div className={style.gameCategory}>
-                            {game.genres?.[0]}
+                        {/* ✅ MULTI GENRES (MAX 3) */}
+                        <div className={style.gameCategories}>
+                            {game.genres?.slice(0, 3).map((genre) => (
+                                <span key={genre} className={style.gameCategory}>
+                                    {genre}
+                                </span>
+                            ))}
                         </div>
 
                         <div className={style.purchaseDetails}>
@@ -124,9 +126,7 @@ export default function ProductDetails() {
                                 <p><MdOutlineMonitor /> Platforms</p>
                                 <p className={style.platforms}>
                                     {game.platforms?.pc && <span>PC</span>}
-                                    {game.platforms?.playstation && (
-                                        <span>PlayStation</span>
-                                    )}
+                                    {game.platforms?.playstation && <span>PlayStation</span>}
                                     {game.platforms?.xbox && <span>Xbox</span>}
                                     {game.platforms?.switch && <span>Switch</span>}
                                 </p>
@@ -160,21 +160,15 @@ export default function ProductDetails() {
                 <div className={style.bottomSection}>
                     <Outlet context={game} />
 
-                    {/* SIMILAR GAMES */}
                     <div className={style.similarGames}>
                         <p className={style.heading}>Similar Games</p>
 
                         {similarGames.length === 0 ? (
-                            <p className={style.empty}>
-                                No similar games found.
-                            </p>
+                            <p className={style.empty}>No similar games found.</p>
                         ) : (
                             <div className={style.similarGrid}>
                                 {similarGames.map((g) => (
-                                    <SimilarGamesCard
-                                        key={g._id}
-                                        game={g}
-                                    />
+                                    <SimilarGamesCard key={g._id} game={g} />
                                 ))}
                             </div>
                         )}

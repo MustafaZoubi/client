@@ -67,13 +67,14 @@
 
 .gameCategory {
     background-color: #b90d0a5a;
-    max-width: fit-content;
-    padding: 5px 7px;
+    padding: 5px 10px;
     border-radius: 10px;
     font-size: 14px;
     border: 1px solid #b90e0a;
     color: #f7817f;
+    white-space: nowrap;
 }
+
 
 .purchaseDetails {
     background: rgba(15, 15, 15, 0.95);
@@ -272,6 +273,11 @@ a {
     color: #ff4d4d;
 }
 
+.gameCategories {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
 
 @media (max-width: 1200px) and (min-width: 769px) {
     .firstSection {
