@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 
-
 * {
     padding: 0;
     margin: 0;
@@ -20,7 +19,6 @@
     padding-right: 10vw;
     height: 100%;
     scrollbar-width: none;
-
 }
 
 .mainContainer::-webkit-scrollbar {
@@ -34,8 +32,6 @@
     width: 100%;
     height: 100%;
     object-position: center top;
-    overflow: hidden;
-
 }
 
 .mainContainer::before {
@@ -46,46 +42,34 @@
     position: fixed;
     pointer-events: none;
     z-index: 0;
-
 }
-
 
 .loginContainer {
     background: rgba(15, 15, 15, 0.95);
     border: 2px solid #9e0d0b;
-    border-radius: 10PX;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
     padding: 40px;
-    position: relative;
     box-shadow: 0 0 10px 2px #9e0d0b;
     margin-top: 5vh;
-    gap: 10px;
-    padding: 40px;
     max-width: 600px;
     width: 100%;
     margin-bottom: 40px;
     min-width: 250px;
 }
 
-
 .logo {
     width: 70px;
-    height: auto;
     filter: drop-shadow(6px 6px 10px rgba(186, 5, 5, 0.4));
     transition: transform 0.5s ease;
-
 }
 
 .logo:hover {
-    transform: scale(1.2);
-    transition: all 0.2s ease;
+    transform: scaleX(-1) scale(1.2);
     filter: drop-shadow(6px 6px 12px rgba(226, 7, 7, 0.625));
-    transform: scaleX(-1);
 }
-
 
 .innerContainer {
     display: flex;
@@ -96,22 +80,12 @@
     padding: 40px;
 }
 
-.usernameContainer,
-.emailContainer,
-.passContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    color: #d1d5db;
-    gap: 7px;
-    position: relative;
-}
-
 .field {
     width: 100%;
     border-radius: 8px;
     padding: 10px 20px;
-    color: black;
+    color: white;
+    background-color: transparent;
     border: 2px solid #770504;
     box-shadow: 0 0 10px 0.5px #770504;
     font-size: 17px;
@@ -127,57 +101,36 @@
 }
 
 .field::placeholder {
-    color: rgb (92, 92, 92);
-    font-weight: 500px;
+    color: rgb(160, 160, 160);
+    font-weight: 500;
     font-size: 15px;
     font-family: "Cinzel", serif;
 }
 
-.field:-webkit-autofill,
-.field:-webkit-autofill:hover,
-.field:-webkit-autofill:focus,
-.field:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+.field:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+    caret-color: white;
     transition: background-color 9999s ease-out 0s;
 }
 
 .registerBtn {
-    background-color: #b90e0a;
+    background-image: linear-gradient(to left, #0A0100, #a90b03);
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
     color: #d1d5db;
     box-shadow: 0 0 15px 3px #b90e0a;
-    font-weight: 400;
     width: 100%;
     font-size: 20px;
     font-family: "Inter", sans-serif;
-    background-image: linear-gradient(to left, #0A0100, #a90b03);
     margin-bottom: 20px;
 }
 
 .registerBtn:hover {
     cursor: pointer;
-    background-color: #9e0d0b;
     box-shadow: 0 0 10px 4px #b90e0a;
     transform: scale(1.03);
     transition: all 0.2s ease;
-}
-
-.terms {
-    color: #d1d5db;
-    display: flex;
-    gap: 8px;
-    font-size: 14px;
-    width: 100%;
-}
-
-.terms input {
-    accent-color: #3B3B3B;
-}
-
-.terms span {
-    color: #b31512;
 }
 
 .account {
@@ -189,15 +142,8 @@
     color: #b31512;
 }
 
-p.forgotPass {
-    color: #b31512;
-}
-
-
-
 @media (max-width: 768px) {
     .loginContainer {
-
         padding: 3vw;
     }
 
