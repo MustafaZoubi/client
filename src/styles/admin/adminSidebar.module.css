@@ -1,0 +1,18 @@
+.sidebar {
+    width: 240px;
+    background: #0b0000;
+    border-right: 2px solid #9e0d0b;
+    padding: 30px;
+}
+
+.logo {
+    color: #b90e0a;
+    margin-bottom: 40px;
+}
+
+a {
+    display: block;
+    margin: 20px 0;
+    color: white;
+    text-decoration: none;
+}

@@ -1,0 +1,15 @@
+.form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+input,
+select {
+    background: #0f0f0f;
+    border: 1px solid #9e0d0b;
+    padding: 10px;
+    color: white;
+    border-radius: 6px;
+}

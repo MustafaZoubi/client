@@ -252,6 +252,27 @@ a {
     font-size: 23px;
 }
 
+.secondBtn {
+    background-color: #1d1d1d;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.wishlistActive {
+    background: linear-gradient(to left, #2a0000, #a90b03);
+    color: white;
+    border: 1px solid #a90b03;
+
+    box-shadow:
+        0 0 12px rgba(169, 11, 3, 0.7),
+        0 0 25px rgba(169, 11, 3, 0.4);
+}
+
+.wishlistActive svg {
+    color: #ff4d4d;
+}
+
+
 @media (max-width: 1200px) and (min-width: 769px) {
     .firstSection {
         flex-direction: column;
