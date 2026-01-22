@@ -9,6 +9,12 @@ import AchievementsLayout from "../components/AchievementsLayout";
 import Profile from "../pages/Profile";
 import CartPage from "../pages/CartPage";
 
+/* ADMIN */
+import AdminRoute from "../components/admin/AdminRoute";
+import AdminLayout from "../admin/AdminLayout";
+import AdminUsers from "../admin/AdminUsers";
+import AdminGames from "../admin/AdminGames";
+import AdminAchievements from "../admin/AdminAchievements";
 
 const routes = createBrowserRouter([
     {
@@ -31,19 +37,9 @@ const routes = createBrowserRouter([
         path: "browse/details/:id",
         element: <ProductDetails />,
         children: [
-            {
-                index: true,
-                element: <Overview />
-            },
-            {
-                path: "overview",
-                element: <Overview />
-            },
-            {
-                path: "achievements",
-                element: <AchievementsLayout />
-            },
-
+            { index: true, element: <Overview /> },
+            { path: "overview", element: <Overview /> },
+            { path: "achievements", element: <AchievementsLayout /> },
         ],
     },
     {
@@ -53,9 +49,21 @@ const routes = createBrowserRouter([
     {
         path: "cart",
         element: <CartPage />
-    }
+    },
 
+    {
+        path: "admin",
+        element: (
+            <AdminRoute>
+                <AdminLayout />
+            </AdminRoute>
+        ),
+        children: [
+            { path: "users", element: <AdminUsers /> },
+            { path: "games", element: <AdminGames /> },
+            { path: "achievements", element: <AdminAchievements /> },
+        ],
+    },
 ]);
-
 
 export default routes;

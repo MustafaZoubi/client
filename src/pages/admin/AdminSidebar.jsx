@@ -6,9 +6,17 @@ export default function AdminSidebar() {
         <aside className={style.sidebar}>
             <h2 className={style.logo}>ADMIN</h2>
 
-            <Link to="users">Users</Link>
-            <Link to="games">Games</Link>
-            <Link to="achievements">Achievements</Link>
+            <NavLink to="users" className={style.link}>
+                Users
+            </NavLink>
+
+            <NavLink to="games" className={style.link}>
+                Games
+            </NavLink>
+
+            <NavLink to="achievements" className={style.link}>
+                Achievements
+            </NavLink>
         </aside>
     );
 }
