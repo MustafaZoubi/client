@@ -2,7 +2,7 @@ import React from 'react'
 import style from '../styles/homepage.module.css'
 import Navbar from '../components/Navbar'
 import bigLogo from "../assets/images/bigLogo.png"
-import bgVideo from "../assets/images/backVideo.mp4";
+import bgVideo from "../assets/images/backvideo.mp4";
 import { Link } from "react-router"
 import backPic from "../assets/images/backPic.jpg"
 export default function Homepage({ children }) {
