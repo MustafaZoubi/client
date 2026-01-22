@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { Outlet, useParams, Link } from 'react-router';
-import Navbar from '../components/Navbar';
+import React, { useEffect, useState } from "react";
+import { Outlet, useParams, Link } from "react-router";
+import Navbar from "../components/Navbar";
 import style from "../styles/productDetails.module.css";
-import ImageCarousel from '../components/ImageCarousel';
+import ImageCarousel from "../components/ImageCarousel";
 import { IoIosArrowBack } from "react-icons/io";
-import { FaStar, FaRegHeart, FaRegUser } from "react-icons/fa";
+import { FaStar, FaRegHeart, FaHeart, FaRegUser } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineMonitor } from "react-icons/md";
-import SimilarGamesCard from '../components/SimilarGamesCard';
+import SimilarGamesCard from "../components/SimilarGamesCard";
 import { fetchGameById } from "../api/gameApi";
 import { addToCartApi } from "../api/cartApi";
 import CartToast from "../components/CartToast";
+import { toggleWishlistApi } from "../api/wishlistApi";
 
 export default function ProductDetails() {
     const { id } = useParams();
@@ -30,6 +31,15 @@ export default function ProductDetails() {
         }
     };
 
+    const toggleWishlist = async () => {
+        try {
+            await toggleWishlistApi(id);
+            setWishlist((prev) => !prev);
+        } catch (e) {
+            console.error(e.message);
+        }
+    };
+
     useEffect(() => {
         fetchGameById(id)
             .then(setGame)
@@ -40,9 +50,8 @@ export default function ProductDetails() {
 
     return (
         <div className={style.mainContainer}>
-            <Navbar backgroundOn={true} />
+            <Navbar backgroundOn />
 
-            {/* ✅ TOAST BANNER */}
             <CartToast
                 show={showToast}
                 onClose={() => setShowToast(false)}
@@ -54,7 +63,6 @@ export default function ProductDetails() {
                     <Link to="../browse">Back to Browse</Link>
                 </div>
 
-                {/* Image + Short Details */}
                 <div className={style.firstSection}>
                     <ImageCarousel images={game.images} />
 
@@ -77,31 +85,45 @@ export default function ProductDetails() {
                                 Add to Cart
                             </button>
 
+                            {/* ❤️ WISHLIST BUTTON */}
                             <button
-                                onClick={() => setWishlist(!wishlist)}
-                                className={`${style.secondBtn} ${wishlist ? style.wishlist : ""}`}
+                                onClick={toggleWishlist}
+                                className={`${style.secondBtn} ${wishlist ? style.wishlistActive : ""
+                                    }`}
                             >
-                                <FaRegHeart />
-                                Wishlist
+                                {wishlist ? <FaHeart /> : <FaRegHeart />}
+                                {wishlist ? "Wishlisted" : "Wishlist"}
                             </button>
                         </div>
 
                         <div className={style.shortDetailedInfo}>
                             <div className={style.line}>
-                                <p><SlCalender /> Release Date</p>
-                                <p>{new Date(game.releaseDate).toLocaleDateString()}</p>
+                                <p>
+                                    <SlCalender /> Release Date
+                                </p>
+                                <p>
+                                    {new Date(
+                                        game.releaseDate
+                                    ).toLocaleDateString()}
+                                </p>
                             </div>
 
                             <div className={style.line}>
-                                <p><FaRegUser /> Publisher</p>
+                                <p>
+                                    <FaRegUser /> Publisher
+                                </p>
                                 <p>{game.publisher}</p>
                             </div>
 
                             <div className={style.line}>
-                                <p><MdOutlineMonitor /> Platforms</p>
+                                <p>
+                                    <MdOutlineMonitor /> Platforms
+                                </p>
                                 <p className={style.platforms}>
                                     {game.platforms.pc && <span>PC</span>}
-                                    {game.platforms.playstation && <span>PlayStation</span>}
+                                    {game.platforms.playstation && (
+                                        <span>PlayStation</span>
+                                    )}
                                     {game.platforms.xbox && <span>Xbox</span>}
                                 </p>
                             </div>
@@ -109,7 +131,6 @@ export default function ProductDetails() {
                     </div>
                 </div>
 
-                {/* Tabs */}
                 <div>
                     <ul className={style.nav}>
                         <li
@@ -130,7 +151,6 @@ export default function ProductDetails() {
                     <div className={style.divider}></div>
                 </div>
 
-                {/* Bottom Section */}
                 <div className={style.bottomSection}>
                     <Outlet context={game} />
 

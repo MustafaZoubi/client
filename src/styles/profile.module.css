@@ -1,27 +1,53 @@
-.profileContainer {
-    min-height: 100vh;
+.profilePage {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     background: radial-gradient(circle at top, #1a0000, #000);
+}
+
+
+.profileMiddle {
+    flex: 1;
+    overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 40px;
+    padding: 40px 20px;
 }
+
+
+.profileScroll {
+    width: 100%;
+    max-width: 1300px;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.profileScroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+.profileLayout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
 
 .card {
     width: 100%;
-    max-width: 900px;
     background: rgba(10, 10, 10, 0.95);
     border: 2px solid #9e0d0b;
     border-radius: 14px;
+    padding: 40px;
     display: flex;
     align-items: center;
-    padding: 40px;
-    gap: 40px;
+    gap: 30px;
     box-shadow: 0 0 30px rgba(158, 13, 11, 0.4);
-}
-
-.avatarSection {
-    flex-shrink: 0;
 }
 
 .avatar {
@@ -40,59 +66,12 @@
 
 .infoSection {
     flex: 1;
-    color: #e5e5e5;
 }
 
 .username {
-    font-size: 36px;
+    font-size: 32px;
     color: white;
-    letter-spacing: 0.1em;
 }
-
-.title {
-    margin-top: 8px;
-    font-size: 14px;
-    color: #b90e0a;
-    letter-spacing: 0.15em;
-}
-
-.status {
-    margin-top: 14px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #ccc;
-}
-
-.dot {
-    width: 8px;
-    height: 8px;
-    background: #b90e0a;
-    border-radius: 50%;
-}
-
-.editBtn {
-    background: linear-gradient(to left, #0a0100, #b90e0a);
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    box-shadow: 0 0 10px #b90e0a;
-}
-
-.editBtn:hover {
-    background: #9e0d0b;
-}
-
-.loading {
-    color: white;
-    text-align: center;
-    padding: 100px;
-}
-
 
 .email {
     color: #aaa;
@@ -118,91 +97,111 @@
 
 .actions {
     display: flex;
-    gap: 10px;
+    gap: 12px;
+}
+
+.editBtn {
+    background: linear-gradient(to left, #0a0100, #b90e0a);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 10px #b90e0a;
 }
 
 .saveBtn {
     background: linear-gradient(to left, #0a0100, #b90e0a);
     border: none;
-    padding: 10px 20px;
-    color: white;
+    padding: 10px 22px;
     border-radius: 6px;
+    color: white;
 }
 
 .cancelBtn {
     background: transparent;
     border: 1px solid #555;
-    padding: 10px 20px;
+    padding: 10px 22px;
     color: #ccc;
     border-radius: 6px;
 }
 
+.wishlistCard {
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    border: 2px solid #9e0d0b;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(158, 13, 11, 0.35);
+}
 
-@media (max-width: 1024px) and (min-width: 769px) {
-    .profileContainer {
-        padding: 20px;
-    }
+.wishlistTitle {
+    color: white;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+}
 
-    .card {
-        padding: 30px;
-        gap: 30px;
-    }
+.wishlistGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
 
-    .username {
-        font-size: 28px;
-    }
+.wishlistItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0f0f0f;
+    border: 1px solid #9e0d0b;
+    border-radius: 10px;
+    padding: 16px 20px;
+}
+
+.gameName {
+    color: white;
+    font-size: 16px;
+}
+
+.gamePrice {
+    color: #b90e0a;
+}
+
+.removeWishlistBtn {
+    background: transparent;
+    border: 1px solid #9e0d0b;
+    color: #b90e0a;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.removeWishlistBtn:hover {
+    background: #9e0d0b;
+    color: white;
+}
+
+.loading,
+.loadingText,
+.emptyText {
+    color: #aaa;
+    text-align: center;
 }
 
 
 @media (max-width: 768px) {
-    .profileContainer {
-        padding: 20px;
-    }
-
     .card {
         flex-direction: column;
-        align-items: center;
         text-align: center;
-        padding: 25px;
-        gap: 25px;
-    }
-
-    .avatar {
-        width: 90px;
-        height: 90px;
-        font-size: 36px;
-    }
-
-    .info {
-        width: 100%;
-    }
-
-    .username {
-        font-size: 24px;
-        letter-spacing: 0.08em;
-    }
-
-    .email {
-        font-size: 14px;
-        word-break: break-word;
-    }
-
-    .role {
-        font-size: 11px;
     }
 
     .actions {
-        width: 100%;
         flex-direction: column;
-    }
-
-    .saveBtn,
-    .cancelBtn,
-    .editBtn {
         width: 100%;
     }
 
-    .input {
-        font-size: 15px;
+    .editBtn,
+    .saveBtn,
+    .cancelBtn {
+        width: 100%;
     }
 }
