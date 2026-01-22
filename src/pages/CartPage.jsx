@@ -30,7 +30,8 @@ export default function CartPage() {
 
     const changeQty = async (gameId, nextQty) => {
         try {
-            const qty = Math.max(1, Math.min(99, nextQty));
+            const qty = Math.max(1, Math.min(99, Number(nextQty)));
+
             const updated = await updateCartQtyApi(gameId, qty);
             setCart(updated);
         } catch (e) {
@@ -90,10 +91,12 @@ export default function CartPage() {
                                     <div className={style.qty}>
                                         <button
                                             className={style.qtyBtn}
+                                            disabled={item.quantity <= 1}
                                             onClick={() => changeQty(item.game._id, item.quantity - 1)}
                                         >
                                             -
                                         </button>
+
                                         <p className={style.qtyNum}>{item.quantity}</p>
                                         <button
                                             className={style.qtyBtn}

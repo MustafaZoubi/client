@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet, useParams } from 'react-router';
+import { Outlet, useParams, Link } from 'react-router';
 import Navbar from '../components/Navbar';
 import style from "../styles/productDetails.module.css";
 import ImageCarousel from '../components/ImageCarousel';
-import { Link } from "react-router";
 import { IoIosArrowBack } from "react-icons/io";
 import { FaStar, FaRegHeart, FaRegUser } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
@@ -12,18 +11,20 @@ import { MdOutlineMonitor } from "react-icons/md";
 import SimilarGamesCard from '../components/SimilarGamesCard';
 import { fetchGameById } from "../api/gameApi";
 import { addToCartApi } from "../api/cartApi";
-
-
+import CartToast from "../components/CartToast";
 
 export default function ProductDetails() {
     const { id } = useParams();
+
     const [game, setGame] = useState(null);
     const [wishlist, setWishlist] = useState(false);
     const [nav, setNav] = useState(true);
+    const [showToast, setShowToast] = useState(false);
 
     const handleAddToCart = async () => {
         try {
             await addToCartApi(game._id, 1);
+            setShowToast(true);
         } catch (e) {
             console.error(e);
         }
@@ -40,6 +41,12 @@ export default function ProductDetails() {
     return (
         <div className={style.mainContainer}>
             <Navbar backgroundOn={true} />
+
+            {/* ✅ TOAST BANNER */}
+            <CartToast
+                show={showToast}
+                onClose={() => setShowToast(false)}
+            />
 
             <div className={style.middleContainer}>
                 <div className={style.back}>
@@ -64,29 +71,34 @@ export default function ProductDetails() {
 
                         <div className={style.purchaseDetails}>
                             <p>${game.price}</p>
+
                             <button onClick={handleAddToCart}>
-                                <IoCartOutline />Add to Cart
-                            </button>                            <button
+                                <IoCartOutline />
+                                Add to Cart
+                            </button>
+
+                            <button
                                 onClick={() => setWishlist(!wishlist)}
                                 className={`${style.secondBtn} ${wishlist ? style.wishlist : ""}`}
                             >
-                                <FaRegHeart />Wishlist
+                                <FaRegHeart />
+                                Wishlist
                             </button>
                         </div>
 
                         <div className={style.shortDetailedInfo}>
                             <div className={style.line}>
-                                <p><SlCalender />Release Date</p>
+                                <p><SlCalender /> Release Date</p>
                                 <p>{new Date(game.releaseDate).toLocaleDateString()}</p>
                             </div>
 
                             <div className={style.line}>
-                                <p><FaRegUser />Publisher</p>
+                                <p><FaRegUser /> Publisher</p>
                                 <p>{game.publisher}</p>
                             </div>
 
                             <div className={style.line}>
-                                <p><MdOutlineMonitor />Platforms</p>
+                                <p><MdOutlineMonitor /> Platforms</p>
                                 <p className={style.platforms}>
                                     {game.platforms.pc && <span>PC</span>}
                                     {game.platforms.playstation && <span>PlayStation</span>}
@@ -97,18 +109,28 @@ export default function ProductDetails() {
                     </div>
                 </div>
 
+                {/* Tabs */}
                 <div>
                     <ul className={style.nav}>
-                        <li onClick={() => setNav(true)} className={nav ? style.selected : ""}>
+                        <li
+                            onClick={() => setNav(true)}
+                            className={nav ? style.selected : ""}
+                        >
                             <Link to="overview">Overview</Link>
                         </li>
-                        <li onClick={() => setNav(false)} className={!nav ? style.selected : ""}>
+
+                        <li
+                            onClick={() => setNav(false)}
+                            className={!nav ? style.selected : ""}
+                        >
                             <Link to="achievements">Achievements</Link>
                         </li>
                     </ul>
+
                     <div className={style.divider}></div>
                 </div>
 
+                {/* Bottom Section */}
                 <div className={style.bottomSection}>
                     <Outlet context={game} />
 

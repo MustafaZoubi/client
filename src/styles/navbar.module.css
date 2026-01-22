@@ -158,7 +158,7 @@ a {
 
 .cartIcon {
     color: #d1d5db;
-    display: none;
+    /* display: none; */
 }
 
 .cartIcon:hover {

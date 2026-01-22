@@ -1,7 +1,9 @@
 const BASE_URL = "http://localhost:5000/api/cart";
 
-const authHeaders = () => {
-    const token = localStorage.getItem("token");
+const getAuthHeaders = () => {
+    const auth = JSON.parse(localStorage.getItem("auth"));
+    const token = auth?.token;
+
     return {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -9,50 +11,58 @@ const authHeaders = () => {
 };
 
 export const fetchMyCart = async () => {
-    const res = await fetch(BASE_URL, { headers: authHeaders() });
+    const res = await fetch(BASE_URL, {
+        headers: getAuthHeaders(),
+    });
+
     const data = await res.json();
-    if (!res.ok) throw new Error(data.message || "Failed to fetch cart");
+    if (!res.ok) throw new Error(data.message);
     return data;
 };
 
-export const addToCartApi = async (gameId, quantity = 1) => {
+export const addToCartApi = async (gameId) => {
     const res = await fetch(`${BASE_URL}/add`, {
         method: "POST",
-        headers: authHeaders(),
-        body: JSON.stringify({ gameId, quantity }),
+        headers: getAuthHeaders(),
+        body: JSON.stringify({ gameId }),
     });
+
     const data = await res.json();
-    if (!res.ok) throw new Error(data.message || "Failed to add to cart");
+    if (!res.ok) throw new Error(data.message);
     return data;
 };
 
+/* ✅ FIXED HERE */
 export const updateCartQtyApi = async (gameId, quantity) => {
-    const res = await fetch(`${BASE_URL}/item/${gameId}`, {
+    const res = await fetch(`${BASE_URL}/update/${gameId}`, {
         method: "PATCH",
-        headers: authHeaders(),
+        headers: getAuthHeaders(),
         body: JSON.stringify({ quantity }),
     });
+
     const data = await res.json();
-    if (!res.ok) throw new Error(data.message || "Failed to update quantity");
+    if (!res.ok) throw new Error(data.message);
     return data;
 };
 
 export const removeCartItemApi = async (gameId) => {
-    const res = await fetch(`${BASE_URL}/item/${gameId}`, {
+    const res = await fetch(`${BASE_URL}/remove/${gameId}`, {
         method: "DELETE",
-        headers: authHeaders(),
+        headers: getAuthHeaders(),
     });
+
     const data = await res.json();
-    if (!res.ok) throw new Error(data.message || "Failed to remove item");
+    if (!res.ok) throw new Error(data.message);
     return data;
 };
 
 export const clearCartApi = async () => {
     const res = await fetch(`${BASE_URL}/clear`, {
-        method: "POST",
-        headers: authHeaders(),
+        method: "DELETE",
+        headers: getAuthHeaders(),
     });
+
     const data = await res.json();
-    if (!res.ok) throw new Error(data.message || "Failed to clear cart");
+    if (!res.ok) throw new Error(data.message);
     return data;
 };
