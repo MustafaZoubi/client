@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/AuthContext";
 import formStyle from "../../styles/admin/adminForm.module.css";
 import table from "../../styles/admin/adminTable.module.css";
 
-const ADMIN_API = "http://localhost:5000/api/admin";
+const ADMIN_API = `${import.meta.env.VITE_SERVER_URL}/api/admin`;
 
 export default function AdminAchievements() {
     const { auth } = useContext(AuthContext);
